@@ -1,0 +1,59 @@
+[0m17:23:39.426113 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020803DB2490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020804DDE150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020804DDEA90>]}
+
+
+============================== 17:23:39.433121 | 4f63e7db-1fdb-486e-91c5-7e26fa87e957 ==============================
+[0m17:23:39.433121 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:23:39.435117 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\Sandrine-BLBH\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m17:24:50.503937 [debug] [MainThread]: Starter project path: C:\Formation_DA\2-Contenus_Formations\Projet3\emissions_co2\env_p3\Lib\site-packages\dbt\include\starter_project
+[0m17:24:50.633951 [info ] [MainThread]: 
+Your new dbt project "p3_emissions_co2" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m17:24:50.638951 [info ] [MainThread]: Setting up your profile.
+[0m17:30:53.432187 [info ] [MainThread]: Profile p3_emissions_co2 written to C:\Users\Sandrine-BLBH\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m17:30:53.436187 [debug] [MainThread]: Command `dbt init` succeeded at 17:30:53.435185 after 434.18 seconds
+[0m17:30:53.440187 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002087D2B3810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002087CFC5590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002087CFC54D0>]}
+[0m17:30:53.444210 [debug] [MainThread]: Flushing usage events
+[0m17:30:54.741104 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:17:03.033241 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AE5B6BEB10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AE59C1CCD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AE5C6EFB50>]}
+
+
+============================== 18:17:03.043242 | 1302e741-db35-435d-8292-1d43439da0ae ==============================
+[0m18:17:03.043242 [info ] [MainThread]: Running with dbt=1.11.7
+[0m18:17:03.046242 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Sandrine-BLBH\\.dbt', 'use_colors': 'True', 'invocation_command': 'dbt run --select models/staging/*', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m18:17:03.049244 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Formation_DA\2-Contenus_Formations\Projet3\emissions_co2\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:17:03.052245 [debug] [MainThread]: Command `dbt run` failed at 18:17:03.051241 after 0.36 seconds
+[0m18:17:03.053244 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AE5B6BEA50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AE5B6AE390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AE5B6AF4D0>]}
+[0m18:17:03.055241 [debug] [MainThread]: Flushing usage events
+[0m18:17:04.334285 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:38:26.021277 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000176B86E3250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000176B86E23D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000176B86E3010>]}
+
+
+============================== 19:38:26.148279 | 24086f56-403e-4a4b-a3d4-bc236a2137f7 ==============================
+[0m19:38:26.148279 [info ] [MainThread]: Running with dbt=1.11.7
+[0m19:38:26.150283 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\Sandrine-BLBH\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt run --select stg_airports', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m19:38:26.152283 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Formation_DA\2-Contenus_Formations\Projet3\emissions_co2\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m19:38:26.156283 [debug] [MainThread]: Command `dbt run` failed at 19:38:26.156283 after 0.30 seconds
+[0m19:38:26.158286 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000176B1C439D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000176B86E0690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000176B86D3810>]}
+[0m19:38:26.159282 [debug] [MainThread]: Flushing usage events
+[0m19:38:27.932304 [debug] [MainThread]: An error was encountered while trying to flush usage events

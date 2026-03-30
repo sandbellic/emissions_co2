@@ -1,0 +1,23 @@
+version: 2
+
+models:
+    - name: stg_trains
+      columns:  
+        - name: transporteur,
+          description: TGV, Intercités ou TER
+        - name: source,
+          description: gare de départ
+        - name: destination,
+          description: gare arrivée
+        - name: distance_train,
+          description: distance en km entre les gares source et destination
+        - name: co2e_train,
+          description: émission en kg de co2e pour le train
+        - name: distance_route,
+          description: distance par la route pour relier les 2 gares
+        - name: co2e_autocar,
+          description : émission en kg de co2e pour un autocar
+        - name: distance_air,
+          description : distance par les airs pour relier les 2 gares
+        - name: co2e_avion
+          description : émission en kg de co2e pour un avion
