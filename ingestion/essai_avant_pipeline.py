@@ -4,17 +4,11 @@ from io import StringIO, BytesIO
 import csv
 
 
-url_routes_train = " https://eu.ftp.opendatasoft.com/sncf/plandata/Export_OpenData_SNCF_GTFS_NewTripId.zip"
-response = requests(url_routes_train)
-if response.status == 200:
-         #ouvrir le zip, le fichier qui nous intéresse est dans le fichier de nom routes.txt
-        z = zipfile.ZipFile(BytesIO(response.content))   #z représente l'archive zip
-        liste = z.open(z.namelist())
-        for element in liste:
-              print(element)
-        #liste_df['routes_train']=pd.read_csv(, sep=',')
-else:
-        print("erreur téléchargement routes SNCF txt")
+
+url = "https://impactco2.fr/api/v1/transport?km=1000&displayAll=0&ignoreRadiativeForcing=0&occupencyRate=1&includeConstruction=1&language=fr"
+response = requests.get(url)
+data = response.json()["data"]
+print(pd.DataFrame(data))
 
 
 

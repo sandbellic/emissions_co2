@@ -3,10 +3,10 @@ on garde aussi les colonnes nom_standard , population , latitude_centre, longitu
 
 with source as (
     select nom_standard, 
-        LOWER(REPLACE(nom_standard, '-', ' ')) AS commune_clean,
+        trim(lower(replace(nom_standard, '-', ' '))) AS commune_clean,
         population, latitude_centre, longitude_centre 
     from {{ source('emissions_co2', 'raw_communes') }}
-    where population >= 25000
+    where population >= {{ var('population_commune') }}
 
 ),
 renamed as (

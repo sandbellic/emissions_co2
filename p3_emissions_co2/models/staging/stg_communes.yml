@@ -3,6 +3,7 @@ version: 2
 models:
     - name: stg_communes
       columns:
+        - name: id_commune,
         - name: commune,
           description: nom de la commune
         - name: commune_clean,
