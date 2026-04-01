@@ -1,5 +1,5 @@
 /*on va garder uniquement les routes aériennes dont aéroport de départ, et aéroport arrivée sont 
-dans la liste des aéroprts francais retenus dans stg_airports */
+dans la liste des aéroports francais retenus dans stg_airports */
 
 with source as (
     select * from {{ source('emissions_co2', 'raw_routes_air') }}

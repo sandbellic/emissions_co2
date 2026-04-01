@@ -22,6 +22,9 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+#on ajoute l'extension pour ensuite pouvoir utiliser la fonction unaccent
+on-run-start:
+  - "{{ create_extensions() }}"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -34,3 +37,7 @@ models:
     # Config indicated by + and applies to all files under models/example/
     staging:
       +materialized: view
+
+vars: 
+  population_commune: 25000
+
