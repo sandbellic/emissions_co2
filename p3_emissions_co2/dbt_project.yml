@@ -39,5 +39,5 @@ models:
       +materialized: view
 
 vars: 
-  population_commune: 25000
+  population_commune: 10000
 

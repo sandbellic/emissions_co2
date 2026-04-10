@@ -3,12 +3,23 @@ import requests
 from io import StringIO, BytesIO
 import csv
 
+url_base = "https://impactco2.fr/api/v1"
+km = 1000
+include_construction = 1
+# estimation faite pour 1000 km, avec intégration des émissions co2 liées à la construction
+url_personnalise = f"/transport?km={km}&displayAll=0&ignoreRadiativeForcing=0&occupencyRate=1&includeConstruction={include_construction}&language=fr"
+response = requests.get(url_base + url_personnalise)
+if response.status_code == 200:
+        data = response.json()["data"]
+        #liste_df['valeur_emissions_co2'] = pd.DataFrame(data)
+        df= pd.DataFrame(data)
+        print(df.head())
+else:
+    print("error")
 
 
-url = "https://impactco2.fr/api/v1/transport?km=1000&displayAll=0&ignoreRadiativeForcing=0&occupencyRate=1&includeConstruction=1&language=fr"
-response = requests.get(url)
-data = response.json()["data"]
-print(pd.DataFrame(data))
+
+
 
 
 
@@ -18,24 +29,34 @@ def api():
 
         #open data SNCF donne des liaisons TGV (régularité mensuelle), ça permet d'obtenir des routes TGV
         #on a une limit=100 et offset comme autre paramètre
-    url_base = "https://ressources.data.sncf.com"
-    url_routes_tgv= "/api/explore/v2.1/catalog/datasets/regularite-mensuelle-tgv-aqst/records?select=median(duree_moyenne)&where=service%20%3D%20%22National%22%20and%20gare_depart%20!%3D%20%220%22%20and%20gare_arrivee%20!%3D%20%220%22&group_by=gare_depart%2C%20gare_arrivee"
-    url = url_base + url_routes_tgv
+    url_base = "https://data.ademe.fr/data-fair/api/v1/datasets/ademe-car-labelling/lines?" 
+    url_criteres = "&select=Marque,Mod%C3%A8le,Energie,Poids_%C3%A0_vide,CO2_basse_vitesse_Min,CO2_basse_vitesse_Max,CO2_moyenne_vitesse_Min,CO2_moyenne_vitesse_Max,CO2_haute_vitesse_Min,CO2_haute_vitesse_Max,CO2_T-haute_vitesse_Min,CO2_T-haute_vitesse_Max,CO2_vitesse_mixte_Min,CO2_vitesse_mixte_Max&format=json&q_mode=simple"
+    page = 1
+    size = 10000
+    url = url_base + url_criteres
 
-    offset = 0
-    limit = 100
     while True:
-        params = {
-            "limit": limit,
-            "offset": offset
-            }
-        response = requests.get(url, params=params)
-        data = response.json()["results"]
+        url_variable = "page=" +str(page) + "&size=" +str(size)
+        url = url_base + url_variable + url_criteres
+        print (url)
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()["results"]
 
-        if not data:
-            break
-        liste.extend(data)
-        offset += limit
+            if not data:
+             break
+            liste.extend(data)
+            page += size
+        else:
+           print("erreur lecture" + response.status_code)
+        
+        return liste
+        exit
 
-    df = pd.DataFrame(liste)
-    print(df.head())
+    #return liste
+
+
+
+
+
+

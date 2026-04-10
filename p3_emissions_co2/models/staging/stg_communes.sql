@@ -3,8 +3,8 @@ on garde aussi les colonnes nom_standard , population , latitude_centre, longitu
 
 with source as (
     select nom_standard, 
-        trim(lower(replace(nom_standard, '-', ' '))) AS commune_clean,
-        population, latitude_centre, longitude_centre 
+        trim(lower(unaccent(replace(lower(replace(nom_standard, '-', ' ')), 'ç', 'c')))) AS commune_clean,
+        population, dep_code, latitude_centre, longitude_centre 
     from {{ source('emissions_co2', 'raw_communes') }}
     where population >= {{ var('population_commune') }}
 
@@ -15,6 +15,7 @@ renamed as (
         nom_standard as commune, 
         commune_clean,
         population, 
+        dep_code,
         latitude_centre as latitude,
         longitude_centre as longitude
     from source

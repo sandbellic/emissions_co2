@@ -1,11 +1,8 @@
 /* on va associer le n° de commune à la commune de la gare */
 
 WITH gares AS (
-    SELECT distinct on (code_uic)           /* distinct on => spécifique postgre */
-        code_uic, commune, libelle, "c_geo.lat", "c_geo.lon", 
-        trim(replace (lower(commune), '–', '-')) as name_clean
-    FROM {{ source('emissions_co2', 'raw_gares') }} 
-    order by code_uic,"c_geo.lat", "c_geo.lon"
+    SELECT *
+    FROM {{ ref('stg_gares') }} 
 ),
 
 communes AS (
@@ -18,13 +15,13 @@ final AS (
         COALESCE(c.id_commune, 0) as id_commune,
         g.code_uic,
         g.commune,
-        g.name_clean as commune_clean,
-        g.libelle as nom_gare,
-        g."c_geo.lat"::float AS latitude_deg,
-        g."c_geo.lon"::float AS longitude_deg
+        g.commune_clean,
+        g.nom_gare,
+        g.latitude_deg,
+        g.longitude_deg
     FROM  gares as g
     LEFT JOIN communes c
-        ON g.name_clean = lower(c.commune)
+        ON g.commune_clean = lower(c.commune)
 )
 
 SELECT * FROM final

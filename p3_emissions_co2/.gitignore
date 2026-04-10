@@ -1,4 +1,5 @@
-env_p3
+env_p3/
 target/
 dbt_packages/
 logs/
+vieux_codes/

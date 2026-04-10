@@ -11,7 +11,7 @@ with source as (
     select icao_code, iata_code,
         trim(lower(municipality)) as commune,
         name as nom_airport,latitude_deg, longitude_deg,  type,
-        trim(replace(replace (lower(name), '–', '-'), 'airport', '')) as name_clean
+        trim(replace(replace(lower(name), '–', '-'), 'airport', '')) as name_clean
     from {{ source('emissions_co2', 'raw_airports') }}
     where type in ('large_airport', 'medium_airport') and icao_code is not null and iata_code is not null
 
