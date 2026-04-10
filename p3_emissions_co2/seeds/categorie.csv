@@ -1,0 +1,8 @@
+categorie,poids_min,poids_max,puissance,signe
+Luxe,0,0,200,>
+Mini,0,1000,0,0
+Citadine,1000,1250,0,0
+Compacte,1250,1500,0,0
+Berline, 1500,1750, 150,<
+SUV,1750,4000,200,<
+

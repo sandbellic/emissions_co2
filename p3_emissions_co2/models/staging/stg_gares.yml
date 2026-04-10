@@ -2,10 +2,8 @@ version: 2
 
 models:
 
-    - name: stg_communes_gares
+    - name: stg_gares
       columns:
-        - name: id_commune,
-          descritption: identifiant de la commune de rattachement
         - name: code_uic,
           description: identifiant de la gare
         - name: commune,
